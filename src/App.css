@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+:root {
+  --primary: #41b883;
+  --secondary: #fff;
+  --tertiary: #f1f1f1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.home {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--tertiary);
 }
 
-.App-link {
-  color: #61dafb;
+.dropzone {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  border: 2px dashed var(--primary);
+  background-color: var(--secondary);
+  transition: .3s ease all;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+label {
+  padding: 8px 12px;
+  color: var(--secondary);
+  background-color: var(--primary);
+  transition: .3s ease all;
+}
+
+input {
+  display: none;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 32px;
+}
+
+.file-info {
+  margin-top: 32px;
+}
+
+.active-dropzone {
+  color: var(--secondary);
+  border-color: var(--secondary);
+  background-color: var(--primary);
+}
+
+.active-dropzone label {
+  background-color: var(--secondary);
+  color: var(--primary);
 }
