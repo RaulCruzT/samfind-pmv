@@ -1,6 +1,6 @@
 # SamFind PMV
 
-Aplicación web actualmente permite arrastrar o seleccionar un archivo.
+Aplicación web actualmente permite arrastrar o seleccionar un archivo y previsualizarlo.
 
 ## Instalar dependencias
 
