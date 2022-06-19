@@ -1,0 +1,74 @@
+/*
+* --primary: #41b883;
+* --secondary: #fff;
+* --tertiary: #f1f1f1;
+*/
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--tertiary);
+    /* background: url("./assets/bg1.jpg") var(--tertiary) center; */
+}
+
+h1 {
+    font-size: 6vw;
+    margin-bottom: 6%;
+    text-align: center;
+}
+
+.file-info {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: left;
+    font-weight: 600;
+}
+
+.card {
+    width: 80%;
+    height: 20%;
+    max-width: 400px;
+    max-height: 100px;
+    border-radius: 0.5rem;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-img {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    width: 30%;
+    border-radius: 0.8rem;
+}
+
+.card-body {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.btn-1 {
+    color: rgb(0,128,0,0.5);
+    cursor: pointer;
+}
+
+.btn-1:hover {
+    color: rgba(0,128,0,1);
+}
+
+.btn-2 {
+    color: rgba(255,0,0,0.5);
+    cursor: pointer;
+}
+
+.btn-2:hover {
+    color: rgba(255,0,0,1);
+}

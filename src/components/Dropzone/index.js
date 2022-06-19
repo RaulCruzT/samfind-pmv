@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import './style.css';
+
 const Dropzone = ({ onNewFile }) => {
     const [active, setActive] = useState(false);
 

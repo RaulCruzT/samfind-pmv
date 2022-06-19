@@ -1,12 +1,20 @@
 import { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import './style.css';
 import Dropzone from "../Dropzone";
 
 const Home = () => {
+    const navigate = useNavigate();
     const [dropzonefile, setDropzonefile] = useState('');
 
     const toObject = (file) => {
         return URL.createObjectURL(file)
     };
+
+    const goToDetail = () => {
+        navigate('/detail', { state: {dropzonefile: dropzonefile} });
+    }
 
     const removeImage = () => {
         setDropzonefile('');
@@ -22,8 +30,8 @@ const Home = () => {
             <div className="card">
                 <img className="card-img" src={toObject(dropzonefile)} alt="" />
                 <div class="card-body">
-                    <i class="fa-solid fa-circle-check fa-xl btn-1"></i>
-                    <i class="fa-solid fa-circle-xmark fa-xl btn-2" onClick={removeImage}></i>
+                    <i className="fa-solid fa-circle-check fa-xl btn-1" onClick={goToDetail}></i>
+                    <i className="fa-solid fa-circle-xmark fa-xl btn-2" onClick={removeImage}></i>
                 </div>
             </div>
             </Fragment>
