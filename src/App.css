@@ -11,25 +11,29 @@
   align-items: center;
   height: 100vh;
   background-color: var(--tertiary);
+  /* background: url("./assets/bg1.jpg") var(--tertiary) center; */
 }
 
 .dropzone {
-  width: 80%;
-  height: 40%;
-  max-width: 400px;
-  height: 200px;
+  width: 70%;
+  height: 30%;
   display: flex;
   flex-direction: column;
+  text-align: center;
   justify-content: center;
   align-items: center;
   row-gap: 1rem;
   border: 2px dashed var(--primary);
   background-color: var(--secondary);
   transition: .3s ease all;
+  padding: 5%;
+  box-sizing: border-box;
 }
 
 label {
-  padding: 8px 12px;
+  /* padding: 8px 12px; */
+  max-width: 80%;
+  padding: 3% 4%;
   color: var(--secondary);
   background-color: var(--primary);
   transition: .3s ease all;
@@ -40,8 +44,9 @@ input {
 }
 
 h1 {
-  font-size: 40px;
-  margin-bottom: 32px;
+  font-size: 6vw;
+  margin-bottom: 6%;
+  text-align: center;
 }
 
 .file-info {
