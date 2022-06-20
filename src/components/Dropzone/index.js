@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import './style.css';
 
-const Dropzone = ({ onNewFile }) => {
+const Dropzone = ({ onNewFile, onToBase64, onSetBase64 }) => {
     const [active, setActive] = useState(false);
 
     const toggleActive = (event) => {
@@ -10,18 +10,33 @@ const Dropzone = ({ onNewFile }) => {
         setActive(!active);
     };
 
+    const transformAndSetToBase64 = (file) => {
+        onToBase64(file)
+            .then(result => {
+                onSetBase64(result);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
     const handleDrop = (event) => {
         event.preventDefault();
+        let file = event.dataTransfer.files[0];
+
         setActive(!active);
-        onNewFile(event.dataTransfer.files[0]);
+        onNewFile(file);
+        transformAndSetToBase64(file);
     }
 
     const handleSelect = (event) => {
-        onNewFile(document.querySelector('.dropzonefile').files[0]);
+        let file = document.querySelector('.dropzonefile').files[0];
+
+        onNewFile(file);
+        transformAndSetToBase64(file);
     }
 
     return(
-        // TO DO: Limit file type to images
         <div
             className={`dropzone ${active ? "active-dropzone": ""}`}
             onDragEnter={toggleActive}

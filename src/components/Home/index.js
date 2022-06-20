@@ -6,14 +6,29 @@ import Dropzone from "../Dropzone";
 
 const Home = () => {
     const navigate = useNavigate();
-    const [dropzonefile, setDropzonefile] = useState('');
+    const [dropzonefile, setDropzonefile] = useState();
+    const [base64URL, setBase64URL] = useState('');
 
     const toObject = (file) => {
         return URL.createObjectURL(file)
     };
 
+    const toBase64 = (file) => {
+        return new Promise(resolve => {
+            let baseURL = '';
+            let reader = new FileReader();
+
+            reader.readAsDataURL(file);
+
+            reader.onload = () => {
+                baseURL = reader.result;
+                resolve(baseURL);
+            }
+        });
+    }
+
     const goToDetail = () => {
-        navigate('/detail', { state: {dropzonefile: dropzonefile} });
+        navigate('/detail', { state: {dropzonefile: dropzonefile, base64URL: base64URL} });
     }
 
     const removeImage = () => {
@@ -23,8 +38,8 @@ const Home = () => {
     return(
         <div className="home">
             <h1>Clasifica a tu mascota</h1>
-            <Dropzone onNewFile={setDropzonefile} />
-            { dropzonefile !== '' ?
+            <Dropzone onNewFile={setDropzonefile} onToBase64={toBase64} onSetBase64={setBase64URL} />
+            { dropzonefile ?
             <Fragment>
             <span className="file-info">Archivo: {dropzonefile.name}</span>
             <div className="card">

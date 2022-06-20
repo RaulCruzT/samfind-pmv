@@ -4,15 +4,17 @@ import './style.css';
 
 
 const Detail = () => {
-    const { state } = useLocation();
+    const { state: { base64URL, dropzonefile } } = useLocation();
 
     const toObject = (file) => {
         return URL.createObjectURL(file)
     };
 
+    console.log(base64URL);
+
     return(
         <div>
-            <img src={toObject(state.dropzonefile)} alt="" />
+            <img src={toObject(dropzonefile)} alt="" />
         </div>
     );
 }
