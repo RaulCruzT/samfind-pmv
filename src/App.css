@@ -3,3 +3,7 @@
   --secondary: #fff;
   --tertiary: #f1f1f1;
 }
+
+.app {
+  font-family: 'Berlin Sans FB Demi', sans-serif;                                                
+}
