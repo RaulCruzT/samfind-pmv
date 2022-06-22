@@ -21,7 +21,7 @@ const Home = () => {
             reader.readAsDataURL(file);
 
             reader.onload = () => {
-                baseURL = reader.result;
+                baseURL = reader.result.split(',').pop();
                 resolve(baseURL);
             }
         });

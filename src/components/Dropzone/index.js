@@ -46,7 +46,7 @@ const Dropzone = ({ onNewFile, onToBase64, onSetBase64 }) => {
         >
             <span>Arrastra y suelta una imagen aquí</span>
             <span>O</span>
-            <label for="dropzonefile">Selecciona una imagen</label>
+            <label htmlFor="dropzonefile">Selecciona una imagen</label>
             <input className="dropzonefile" type="file" accept="image/*" id="dropzonefile" onChange={handleSelect} />
         </div>
     );

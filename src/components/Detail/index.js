@@ -1,18 +1,23 @@
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import './Detail.css';
 import Loader from '../Loader';
 
 const Detail = () => {
     const { state: { base64URL, dropzonefile } } = useLocation();
-    const [isLoaded, setIsLoaded] = useState(true);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const toObject = (file) => {
         return URL.createObjectURL(file)
     };
 
-    console.log(base64URL);
+    useEffect(() => {
+        let imgFormat = dropzonefile.name.match(/.(?=png|jpg|gif|jpeg)('|"|)\w+/g)[0];
+        let imgName = dropzonefile.name.replace(imgFormat,'');
+        let imgFormat2 = imgFormat.replace('.','');
+        console.log(imgName, imgFormat2, base64URL);
+    });
 
     return(
         <div className="detail">
