@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./Home.css"
-import Dropzone from "../Dropzone";
+import Dropzone from "./Home.css";
 
 const Home = () => {
     const navigate = useNavigate();
