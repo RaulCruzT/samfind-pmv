@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import './Detail.css';
 import Loader from '../Loader';
@@ -7,16 +8,34 @@ import Loader from '../Loader';
 const Detail = () => {
     const { state: { base64URL, dropzonefile } } = useLocation();
     const [isLoaded, setIsLoaded] = useState(false);
+    const [apiResponse, setApiResponse] = useState();
 
     const toObject = (file) => {
         return URL.createObjectURL(file)
     };
 
     useEffect(() => {
+        const endPoint = 'https://samfind-backend.herokuapp.com/api/alldogcat';
+        // const headers =  {
+        //     'Content-Type': 'application/json',
+        // }
         let imgFormat = dropzonefile.name.match(/.(?=png|jpg|gif|jpeg)('|"|)\w+/g)[0];
         let imgName = dropzonefile.name.replace(imgFormat,'');
         let imgFormat2 = imgFormat.replace('.','');
-        console.log(imgName, imgFormat2, base64URL);
+        //console.log(imgName, imgFormat2, base64URL);
+
+        // axios.post(endPoint, {
+        //     image: base64URL,
+        //     name: imgName,
+        //     format: imgFormat2,
+        //     })
+        //     .then(async response => {
+        //         let data2 = await response.data;
+        //         console.log(data2);
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
     });
 
     return(
