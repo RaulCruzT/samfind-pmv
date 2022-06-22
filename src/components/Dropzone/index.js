@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import './style.css';
+import './Dropzone.css';
 
 const Dropzone = ({ onNewFile, onToBase64, onSetBase64 }) => {
     const [active, setActive] = useState(false);
