@@ -16,13 +16,9 @@ const Detail = () => {
 
     useEffect(() => {
         const endPoint = 'https://samfind-backend.herokuapp.com/api/alldogcat';
-        // const headers =  {
-        //     'Content-Type': 'application/json',
-        // }
         let imgFormat = dropzonefile.name.match(/.(?=png|jpg|gif|jpeg)('|"|)\w+/g)[0];
         let imgName = dropzonefile.name.replace(imgFormat,'');
         let imgFormat2 = imgFormat.replace('.','');
-        //console.log(imgName, imgFormat2, base64URL);
 
         // axios.post(endPoint, {
         //     image: base64URL,
@@ -32,6 +28,8 @@ const Detail = () => {
         //     .then(async response => {
         //         let data2 = await response.data;
         //         console.log(data2);
+        //         setApiResponse(data2);
+        //         setIsLoaded(true);
         //     })
         //     .catch((error) => {
         //         console.log(error);
